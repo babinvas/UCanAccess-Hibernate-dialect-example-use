@@ -23,6 +23,7 @@ public class Employee {
 	@JoinColumn(name = "passport_id")
 	private Passport passport;
 
+	@Transient
 	private AddressEmployee address;
 
 	private String email;
