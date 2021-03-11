@@ -4,7 +4,7 @@
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
 
-    <persistence-unit name="nkso-members-and-employers">
+    <persistence-unit name="UCanAccess-Hibernate-dialect-example-use">
 
         <description>
             Example of using the UCanAccessDialect.
@@ -19,7 +19,7 @@
             <property name="javax.persistence.jdbc.driver" value="net.ucanaccess.jdbc.UcanaccessDriver" />
 
             <property name="hibernate.dialect" value="net.ucanaccess.hibernate.dialect.UCanAccessDialect"/>
-            <property name="hibernate.connection.url" value="jdbc:ucanaccess://src/main/resources/bot.accdb"/>
+            <property name="hibernate.connection.url" value="jdbc:ucanaccess://src/main/resources/db/db.accdb"/>
 
             <property name="javax.persistence.jdbc.user" value="" />
             <property name="javax.persistence.jdbc.password" value="" />
