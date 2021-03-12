@@ -7,8 +7,8 @@ import java.util.Date;
 @Table(name = "Passport")
 public class Passport {
 	@Id
-	@Column(name = "employee_id", nullable = false)
-	private long employeeId;
+	@Column(name = "person_id", nullable = false)
+	private long personId;
 
 	private int series;
 	private int number;
@@ -18,21 +18,21 @@ public class Passport {
 	private Date issuedDate;
 
 	@OneToOne(optional = false, mappedBy = "passport")
-	private Employee owner;
+	private Person owner;
 
 	public Passport() {
 	}
 
-	public Passport(Employee employee) {
-		this.employeeId = employee.getId();
+	public Passport(Person person) {
+		this.personId = person.getId();
 	}
 
-	public long getEmployeeId() {
-		return employeeId;
+	public long getPersonId() {
+		return personId;
 	}
 
-	public void setEmployeeId(Employee employee) {
-		this.employeeId = employee.getId();
+	public void setPersonId(long personId) {
+		this.personId = personId;
 	}
 
 	public int getSeries() {
@@ -67,11 +67,11 @@ public class Passport {
 		this.issuedDate = issuedDate;
 	}
 
-	public Employee getOwner() {
+	public Person getOwner() {
 		return owner;
 	}
 
-	public void setOwner(Employee owner) {
+	public void setOwner(Person owner) {
 		this.owner = owner;
 	}
 }

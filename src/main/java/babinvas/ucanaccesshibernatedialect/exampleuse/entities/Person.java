@@ -3,8 +3,8 @@ package babinvas.ucanaccesshibernatedialect.exampleuse.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Employee")
-public class Employee {
+@Table(name = "Person")
+public class Person {
 	@Id
 	@Column(name = "id", nullable = false)
 	private long id;
@@ -13,28 +13,22 @@ public class Employee {
 	private String name;
 	private String patronymic;
 
-	@Column(name = "abbreviation_to_whom")
-	private String abbreviationToWhom;
-
-	@Column(name = "respectful_word_ending")
-	private String respectfulWordEnding;
-
 	@OneToOne(optional = false, cascade = CascadeType.ALL)
 	@JoinColumn(name = "passport_id")
 	private Passport passport;
 
 	@Transient
-	private AddressEmployee address;
+	private AddressPerson address;
 
 	private String email;
 
 	@Column(name = "email_2")
 	private String email2;
 
-	public Employee() {
+	public Person() {
 	}
 
-	public Employee(long id, String surname, String name, String patronymic) {
+	public Person(long id, String surname, String name, String patronymic) {
 		this.id = id;
 		this.surname = surname;
 		this.name = name;
@@ -73,22 +67,6 @@ public class Employee {
 		this.patronymic = patronymic;
 	}
 
-	public String getAbbreviationToWhom() {
-		return abbreviationToWhom;
-	}
-
-	public void setAbbreviationToWhom(String abbreviationToWhom) {
-		this.abbreviationToWhom = abbreviationToWhom;
-	}
-
-	public String getRespectfulWordEnding() {
-		return respectfulWordEnding;
-	}
-
-	public void setRespectfulWordEnding(String respectfulWordEnding) {
-		this.respectfulWordEnding = respectfulWordEnding;
-	}
-
 	public Passport getPassport() {
 		return passport;
 	}
@@ -97,11 +75,11 @@ public class Employee {
 		this.passport = passport;
 	}
 
-	public AddressEmployee getAddress() {
+	public AddressPerson getAddress() {
 		return address;
 	}
 
-	public void setAddress(AddressEmployee address) {
+	public void setAddress(AddressPerson address) {
 		this.address = address;
 	}
 

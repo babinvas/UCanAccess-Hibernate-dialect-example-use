@@ -12,9 +12,9 @@
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>babinvas.ucanaccesshibernatedialect.exampleuse.entities.Employee</class>
+        <class>babinvas.ucanaccesshibernatedialect.exampleuse.entities.Person</class>
         <class>babinvas.ucanaccesshibernatedialect.exampleuse.entities.Passport</class>
-        <class>babinvas.ucanaccesshibernatedialect.exampleuse.entities.AddressEmployee</class>
+        <class>babinvas.ucanaccesshibernatedialect.exampleuse.entities.AddressPerson</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="net.ucanaccess.jdbc.UcanaccessDriver" />

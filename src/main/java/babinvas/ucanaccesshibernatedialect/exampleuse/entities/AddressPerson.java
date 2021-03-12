@@ -6,8 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Employee")
-public class AddressEmployee {
+@Table(name = "Person")
+public class AddressPerson {
 	@Id
 	@Column(name = "id", nullable = false)
 	private long id;
@@ -18,11 +18,11 @@ public class AddressEmployee {
 	@Column(name = "correspondence_address")
 	private String correspondenceAddress;
 
-	public AddressEmployee() {
+	public AddressPerson() {
 	}
 
-	public AddressEmployee(Employee employee) {
-		this.id = employee.getId();
+	public AddressPerson(Person person) {
+		this.id = person.getId();
 	}
 
 	public long getId() {
