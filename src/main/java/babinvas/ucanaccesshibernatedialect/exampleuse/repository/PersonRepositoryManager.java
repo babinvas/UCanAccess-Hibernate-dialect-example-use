@@ -41,7 +41,10 @@ public class PersonRepositoryManager implements RepositoryManager<Person> {
 
 	@Override
 	public Person readEntity(long id) {
-		return null;
+		Person person = entityManager.find(Person.class, id);
+		executeTransaction();
+
+		return person;
 	}
 
 	@Override
