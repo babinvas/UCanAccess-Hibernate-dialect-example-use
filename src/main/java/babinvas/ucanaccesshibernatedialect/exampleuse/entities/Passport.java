@@ -74,4 +74,23 @@ public class Passport {
 	public void setOwner(Person owner) {
 		this.owner = owner;
 	}
+
+	@Override
+	public String toString() {
+		return "Passport{" +
+				"personId=" + personId +
+				", series=" + series +
+				", number=" + number +
+				", authority='" + authority + '\'' +
+				", issuedDate=" + issuedDate +
+				", Person{" +
+				"surname='" + owner.getSurname() + '\'' +
+				", name='" + owner.getName() + '\'' +
+				", AddressPerson{" +
+				"registrationAddress='" + owner.getAddress().getRegistrationAddress() + '\'' +
+				", correspondenceAddress='" + owner.getAddress().getCorrespondenceAddress() + '\'' +
+				'}' +
+				", email='" + owner.getEmail() + '\'' +
+				'}';
+	}
 }

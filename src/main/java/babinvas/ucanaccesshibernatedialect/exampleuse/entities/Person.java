@@ -77,4 +77,23 @@ public class Person {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	@Override
+	public String toString() {
+		return "Person{" +
+				"id=" + id +
+				", surname='" + surname + '\'' +
+				", name='" + name + '\'' +
+				", Passport{" +
+				"series=" + passport.getSeries() +
+				", number=" + passport.getNumber() +
+				", authority='" + passport.getAuthority() + '\'' +
+				'}' +
+				", AddressPerson{" +
+				"registrationAddress='" + address.getRegistrationAddress() + '\'' +
+				", correspondenceAddress='" + address.getCorrespondenceAddress() + '\'' +
+				'}' +
+				", email='" + email + '\'' +
+				'}';
+	}
 }

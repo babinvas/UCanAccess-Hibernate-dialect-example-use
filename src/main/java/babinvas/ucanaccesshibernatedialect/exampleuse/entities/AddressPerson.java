@@ -48,4 +48,13 @@ public class AddressPerson {
 	public void setCorrespondenceAddress(String correspondenceAddress) {
 		this.correspondenceAddress = correspondenceAddress;
 	}
+
+	@Override
+	public String toString() {
+		return "AddressPerson{" +
+				"id=" + id +
+				", registrationAddress='" + registrationAddress + '\'' +
+				", correspondenceAddress='" + correspondenceAddress + '\'' +
+				'}';
+	}
 }
