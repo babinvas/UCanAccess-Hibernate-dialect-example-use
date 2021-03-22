@@ -1,9 +1,6 @@
 package babinvas.ucanaccesshibernatedialect.exampleuse.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Person")
@@ -18,11 +15,15 @@ public class AddressPerson {
 	@Column(name = "correspondence_address")
 	private String correspondenceAddress;
 
+	@Transient
+	private Person tenant;
+
 	public AddressPerson() {
 	}
 
-	public AddressPerson(Person person) {
-		this.id = person.getId();
+	public AddressPerson(Person tenant) {
+		this.id = tenant.getId();
+		this.tenant = tenant;
 	}
 
 	public long getId() {
@@ -47,6 +48,14 @@ public class AddressPerson {
 
 	public void setCorrespondenceAddress(String correspondenceAddress) {
 		this.correspondenceAddress = correspondenceAddress;
+	}
+
+	public Person getTenant() {
+		return tenant;
+	}
+
+	public void setTenant(Person tenant) {
+		this.tenant = tenant;
 	}
 
 	@Override
