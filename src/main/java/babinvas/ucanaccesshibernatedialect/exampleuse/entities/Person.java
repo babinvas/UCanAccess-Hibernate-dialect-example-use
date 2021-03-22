@@ -88,6 +88,7 @@ public class Person {
 				"series=" + passport.getSeries() +
 				", number=" + passport.getNumber() +
 				", authority='" + passport.getAuthority() + '\'' +
+				", issuedDate=" + passport.getIssuedDate() +
 				'}' +
 				", AddressPerson{" +
 				"registrationAddress='" + address.getRegistrationAddress() + '\'' +

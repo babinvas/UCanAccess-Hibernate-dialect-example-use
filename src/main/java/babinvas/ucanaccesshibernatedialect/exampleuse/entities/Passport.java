@@ -91,6 +91,7 @@ public class Passport {
 				", correspondenceAddress='" + owner.getAddress().getCorrespondenceAddress() + '\'' +
 				'}' +
 				", email='" + owner.getEmail() + '\'' +
+				'}' +
 				'}';
 	}
 }

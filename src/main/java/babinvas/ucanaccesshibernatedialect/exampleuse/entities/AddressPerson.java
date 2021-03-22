@@ -64,6 +64,17 @@ public class AddressPerson {
 				"id=" + id +
 				", registrationAddress='" + registrationAddress + '\'' +
 				", correspondenceAddress='" + correspondenceAddress + '\'' +
+				", Person{" +
+				", surname='" + tenant.getSurname() + '\'' +
+				", name='" + tenant.getName() + '\'' +
+				", Passport{" +
+				"series=" + tenant.getPassport().getSeries() +
+				", number=" + tenant.getPassport().getNumber() +
+				", authority='" + tenant.getPassport().getAuthority() + '\'' +
+				", issuedDate=" + tenant.getPassport().getIssuedDate() +
+				'}' +
+				", email='" + tenant.getEmail() + '\'' +
+				'}' +
 				'}';
 	}
 }
