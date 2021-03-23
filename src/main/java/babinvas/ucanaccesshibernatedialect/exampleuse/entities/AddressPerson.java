@@ -65,7 +65,7 @@ public class AddressPerson {
 				", registrationAddress='" + registrationAddress + '\'' +
 				", correspondenceAddress='" + correspondenceAddress + '\'' +
 				", Person{" +
-				", surname='" + tenant.getSurname() + '\'' +
+				"surname='" + tenant.getSurname() + '\'' +
 				", name='" + tenant.getName() + '\'' +
 				", Passport{" +
 				"series=" + tenant.getPassport().getSeries() +
