@@ -31,7 +31,6 @@ public class PassportRepositoryManager implements RepositoryManager<Passport> {
 		AddressPerson addressPerson = entityManager.find(AddressPerson.class, id);
 
 		passport.getOwner().setAddress(addressPerson);
-		executeTransaction(entityManager);
 
 		return passport;
 	}

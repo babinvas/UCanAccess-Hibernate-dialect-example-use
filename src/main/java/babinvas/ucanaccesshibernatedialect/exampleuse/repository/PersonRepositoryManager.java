@@ -4,50 +4,59 @@ import babinvas.ucanaccesshibernatedialect.exampleuse.entities.AddressPerson;
 import babinvas.ucanaccesshibernatedialect.exampleuse.entities.Person;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
 public class PersonRepositoryManager implements RepositoryManager<Person> {
-	EntityManager entityManager;
+	EntityManagerFactory entityManagerFactory;
 
-
-	public PersonRepositoryManager(EntityManager entityManager) {
-		this.entityManager = entityManager;
+	public PersonRepositoryManager(EntityManagerFactory entityManagerFactory) {
+		this.entityManagerFactory = entityManagerFactory;
 	}
 
 	@Override
 	public void createEntity(Person person) {
+		EntityManager entityManager = getEntityManager();
+
 		entityManager.persist(person);
-		executeTransaction();
+		executeTransaction(entityManager);
 	}
 
 	@Override
 	public Person readEntity(long id) {
+		EntityManager entityManager = getEntityManager();
+
 		Person person = entityManager.find(Person.class, id);
+		AddressPerson addressPerson = entityManager.find(AddressPerson.class, id);
 
-		AddressPersonRepositoryManager addressPersonRepositoryManager = new AddressPersonRepositoryManager(entityManager);
-		AddressPerson addressPerson = addressPersonRepositoryManager.readEntity(id);
 		person.setAddress(addressPerson);
-
-		executeTransaction();
 
 		return person;
 	}
 
 	@Override
 	public void updateEntity(Person person) {
+		EntityManager entityManager = getEntityManager();
+
 		entityManager.merge(person);
-		executeTransaction();
+		executeTransaction(entityManager);
 	}
 
 	@Override
 	public void deleteEntity(long id) {
-		Person person = entityManager.find(Person.class, id);
-		entityManager.remove(person);
+		EntityManager entityManager = getEntityManager();
 
-		executeTransaction();
+		Person person = entityManager.find(Person.class, id);
+
+		entityManager.remove(person);
+		executeTransaction(entityManager);
 	}
 
-	private void executeTransaction() {
+	private EntityManager getEntityManager() {
+		return entityManagerFactory.createEntityManager();
+	}
+
+	private void executeTransaction(EntityManager entityManager) {
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 
 		try {
@@ -62,7 +71,7 @@ public class PersonRepositoryManager implements RepositoryManager<Person> {
 		}
 	}
 
-	private void close() {
+	private void close(EntityManager entityManager) {
 		entityManager.getEntityManagerFactory().close();
 		entityManager.close();
 	}
